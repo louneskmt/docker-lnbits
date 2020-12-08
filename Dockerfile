@@ -1,6 +1,6 @@
 ARG VERSION=0.2.0
 
-FROM python:3.9-alpine
+FROM arm32v8/python:3.9-alpine
 
 ARG VERSION
 
