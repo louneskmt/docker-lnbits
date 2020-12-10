@@ -20,9 +20,7 @@ ENV PORT=5000
 RUN python3 -m venv venv \
 && ./venv/bin/pip install wheel\
 && ./venv/bin/pip install -r requirements.txt \
-&& ./venv/bin/pip install lndgrpc purerpc \
-&& ./venv/bin/quart assets \
-&& ./venv/bin/quart migrate
+&& ./venv/bin/pip install lndgrpc purerpc
 
 COPY entrypoint.sh /bin/entrypoint
 RUN chmod +x /bin/entrypoint
