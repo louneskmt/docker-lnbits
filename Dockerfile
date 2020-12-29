@@ -15,7 +15,7 @@ WORKDIR /lnbits
 ENV QUART_APP=lnbits.app:create_app()
 ENV QUART_ENV=development
 ENV QUART_DEBUG=true
-ENV HOST=127.0.0.1
+ENV HOST=0.0.0.0
 ENV PORT=5000
 
 RUN python3 -m venv venv \
