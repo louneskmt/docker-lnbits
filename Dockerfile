@@ -14,7 +14,7 @@ ENV PORT=5000
 
 RUN apt-get update \
 &&  apt-get install -y build-essential \
-&&  curl -L https://github.com/lnbits/lnbits/archive/$VERSION.tar.gz | tar -xz --strip-components=1 \
+&&  wget -c https://github.com/lnbits/lnbits/archive/$VERSION.tar.gz -O - | tar -xz --strip-components=1 \
 &&  python3 -m venv venv \
 &&  ./venv/bin/pip install --upgrade pip \
 &&  ./venv/bin/pip install wheel setuptools \
