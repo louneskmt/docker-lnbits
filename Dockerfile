@@ -4,11 +4,9 @@ FROM python:3.9-slim-buster
 
 ARG VERSION
 
-WORKDIR /
-
 RUN apt-get update \
-&&  apt-get install -y git build-essential gcc make \
-&&  git clone --branch $VERSION https://github.com/lnbits/lnbits.git 
+&&  apt-get install -y build-essential \
+&& curl -L https://github.com/lnbits/lnbits/archive/$VERSION.tar.gz | tar -xz --strip-components=1
 
 WORKDIR /lnbits
 
