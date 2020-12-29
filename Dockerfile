@@ -13,7 +13,7 @@ ENV HOST=0.0.0.0
 ENV PORT=5000
 
 RUN apt-get update \
-&&  apt-get install -y build-essential \
+&&  apt-get install -y build-essential wget \
 &&  wget -c https://github.com/lnbits/lnbits/archive/$VERSION.tar.gz -O - | tar -xz --strip-components=1 \
 &&  python3 -m venv venv \
 &&  ./venv/bin/pip install --upgrade pip \
