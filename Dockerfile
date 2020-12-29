@@ -27,6 +27,6 @@ RUN python3 -m venv venv \
 COPY entrypoint.sh /bin/entrypoint
 RUN chmod +x /bin/entrypoint
 
-EXPOSE 5000
+EXPOSE ${PORT}
 
 ENTRYPOINT ["/bin/entrypoint"]
