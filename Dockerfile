@@ -18,8 +18,7 @@ ENV QUART_DEBUG=true
 ENV HOST=127.0.0.1
 ENV PORT=5000
 
-RUN cp -r -f /opt/venv ./venv \
-&&  python3 -m venv venv \
+RUN python3 -m venv --system-site-packages venv \
 &&  ./venv/bin/pip install --upgrade pip \
 &&  ./venv/bin/pip install wheel setuptools \
 &&  ./venv/bin/pip install -r requirements.txt
