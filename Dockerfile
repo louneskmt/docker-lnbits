@@ -1,6 +1,6 @@
 ARG VERSION=0.2.0
 
-FROM louneskmt/python:3.9-slim-buster-with-lndgrpc-purerpc
+FROM python:3.9-slim-buster
 
 ARG VERSION
 
@@ -18,10 +18,11 @@ ENV QUART_DEBUG=true
 ENV HOST=127.0.0.1
 ENV PORT=5000
 
-RUN python3 -m venv --system-site-packages venv \
+RUN python3 -m venv venv \
 &&  ./venv/bin/pip install --upgrade pip \
 &&  ./venv/bin/pip install wheel setuptools \
-&&  ./venv/bin/pip install -r requirements.txt
+&&  ./venv/bin/pip install -r requirements.txt \
+&&  ./venv/bin/pip install purerpc lndgrpc
 
 COPY entrypoint.sh /bin/entrypoint
 RUN chmod +x /bin/entrypoint
