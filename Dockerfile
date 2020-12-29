@@ -4,10 +4,6 @@ FROM python:3.9-slim-buster
 
 ARG VERSION
 
-RUN apt-get update \
-&&  apt-get install -y build-essential \
-&&  curl -L https://github.com/lnbits/lnbits/archive/$VERSION.tar.gz | tar -xz --strip-components=1
-
 WORKDIR /lnbits
 
 ENV QUART_APP=lnbits.app:create_app()
@@ -16,7 +12,10 @@ ENV QUART_DEBUG=true
 ENV HOST=0.0.0.0
 ENV PORT=5000
 
-RUN python3 -m venv venv \
+RUN apt-get update \
+&&  apt-get install -y build-essential \
+&&  curl -L https://github.com/lnbits/lnbits/archive/$VERSION.tar.gz | tar -xz --strip-components=1 \
+&&  python3 -m venv venv \
 &&  ./venv/bin/pip install --upgrade pip \
 &&  ./venv/bin/pip install wheel setuptools \
 &&  ./venv/bin/pip install -r requirements.txt \
